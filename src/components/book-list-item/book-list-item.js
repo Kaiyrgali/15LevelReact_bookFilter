@@ -3,18 +3,20 @@ import './book-list-item.css';
 
 function BookListItem({ book, onAddedToCart }) {
   const {
-    title, author, price, coverImage,
+    // title, author, price, coverImage, 
+    author, description, id, imgUrl, price, review, title
   } = book;
   return (
     <div className="book-list-item">
       <div className="book-cover">
-        <img src={coverImage} alt="cover" />
+        <img src={imgUrl} alt="cover" />
       </div>
       <div className="book-details">
         <span className="book-title">{title}</span>
         <div className="book-author">{author}</div>
+        <div className="book-title">{review}</div>
         <div className="book-price">
-          $
+          
           {price}
         </div>
         <button

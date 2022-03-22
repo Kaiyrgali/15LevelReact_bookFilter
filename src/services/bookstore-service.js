@@ -1,5 +1,4 @@
-export default class 
-BookstoreService {
+export default class BookstoreService {
   _apiBase = 'https://bookshelves.p.rapidapi.com/books';
   _apiBaseKey = '5aea6a6c5fmshfbf9bf49513d8c9p1f57e8jsn5bee58ede18b';
   _apiBaseHost = 'bookshelves.p.rapidapi.com';
