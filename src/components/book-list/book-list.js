@@ -38,6 +38,7 @@ class BookListContainer extends Component {
     const {
       books, loading, error, onAddedToCart,
     } = this.props;
+    const displayBooks = books.slice(0,5);
     if (loading) {
       return <Spinner />;
     }
@@ -47,7 +48,7 @@ class BookListContainer extends Component {
 
     return (
       <BookList
-        books={books}
+        books={displayBooks}
         onAddedToCart={onAddedToCart}
       />
     );
