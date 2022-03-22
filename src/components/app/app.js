@@ -10,6 +10,7 @@ import { BookstoreServiceProvider } from '../bookstore-service-context';
 import BookstoreService from '../../services/bookstore-service';
 
 const bookstoreService = new BookstoreService();
+// console.log(bookstoreService);
 
 function App() {
   return (

@@ -11,10 +11,12 @@ import ErrorIndicator from '../error-indicator';
 import './book-list.css';
 
 function BookList({ books, onAddedToCart }) {
+  // const ar = 
+  console.log(books);
   return (
     <ul className="book-list">
-      {
-        books.map((book) => (
+      { books.map((book) => (
+          
           <li key={book.id}>
             <BookListItem
               book={book}
