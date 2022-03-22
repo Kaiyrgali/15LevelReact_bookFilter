@@ -1,0 +1,32 @@
+author: "Terry Hayes"
+description: "THE AMAZING NEW THRILLER FROM TERRY HAYES. "
+id: 0
+imgUrl: "https://images-na.ssl-images-amazon.com/images/I/51yzXRsP89L._SX319_BO1,204,203,200_.jpg"
+price: "£16.00"
+review: "3.2 out of 5 stars"
+source: "www.amazon.co.uk"
+title: "The Year of the Locust: Terry Hayes"
+
+const  _apiBase = 'https://bookshelves.p.rapidapi.com/books';
+  const _apiBaseKey = '5aea6a6c5fmshfbf9bf49513d8c9p1f57e8jsn5bee58ede18b';
+  const _apiBaseHost = 'bookshelves.p.rapidapi.com';
+
+  const getResource = async () => {
+    console.log('Start')
+    const res = await fetch(_apiBase, {
+          "method": "GET",
+          "headers": {
+            "x-rapidapi-key": _apiBaseKey,
+            "x-rapidapi-host": _apiBaseHost
+          }});
+    if (!res.ok) {
+      throw new Error(`Could not fetch Books DataBase recieved ${res.status}`);
+    };
+    if (res.ok) {
+      const result = await res.json();
+      console.log(result)
+    }
+    //  return await res.json();
+    };
+  // };
+ export default getResource;
