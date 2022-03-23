@@ -3,33 +3,21 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import BookListItem from '../book-list-item';
 import { withBookstoreService } from '../hoc';
-import { fetchBooks, bookAddedToCart, gotoPage } from '../../actions';
+import { fetchBooks, gotoPage } from '../../actions';
 import { compose } from '../../utils';
 import Spinner from '../spinner';
 import ErrorIndicator from '../error-indicator';
 
 import './book-list.css';
 
-// let  page =1;
-
-// const gotoPageNew = (newPage) => {
-//   let page = newPage;
-//   console.log('goto ', page)
-//   return page;
-// }
-
-function BookList({ books, page, onAddedToCart, gotoPageNew }) {
+function BookList({ books, page, gotoPageNew }) {
   const pages = Math.ceil(books.length/5);
   const pagesNumbers = new Array;
   for (let i = 0; i < pages; i++) {
     pagesNumbers.push(i+1);
-    // console.log(pagesNumbers)
   };
-  let onPageBooks = books.splice((page-1)*5,5);
-  console.log(page);
+  const onPageBooks = books.splice((page-1)*5,5);
   
-  // const ar = 
-  // console.log(books);
   return (
     <div>
       <ul className="book-list">
@@ -37,7 +25,6 @@ function BookList({ books, page, onAddedToCart, gotoPageNew }) {
             <li key={book.id}>
               <BookListItem
                 book={book}
-                onAddedToCart={() => onAddedToCart(book.id)}
               />
             </li>
           ))
@@ -62,19 +49,11 @@ class BookListContainer extends Component {
   componentDidMount() {
     this.props.fetchBooks();
   }
-  // componentDidUpdate() {
-  //   if (books)
-  //   console.log('Updete', this.bookstoreService)
-  //   const displayBooks = this.books.slice(0,10);
-  //   console.log(displayBooks);
-  // }
+
   render() {
-    console.log('render page', page);
     const {
-      books, loading, error, booksFilter, booksRaiting, booksPrice, onAddedToCart, page,gotoPageNew
+      books, loading, error, booksFilter, booksRaiting, booksPrice, page, gotoPageNew
     } = this.props;
-    // console.log('filter', booksFilter);
-    // console.log('books', books);
     let displayBooks = books.slice();
     
     if (booksFilter) {
@@ -100,8 +79,6 @@ class BookListContainer extends Component {
 
     if (booksPrice) {
       function filterByPrice(item) {
-        // console.log(item.price.substr(1));
-        // console.log(Number('3'))
         if (Number(item.price.substr(1)) <= booksPrice) {
           return true
         }
@@ -117,19 +94,11 @@ class BookListContainer extends Component {
       return <ErrorIndicator />;
     }
 
-    // function gotoPageNew (newPage) {
-    //   page = newPage;
-    //   console.log('goto ', page)
-    //   return page;
-    // }
-
     return (
       <BookList
         books={displayBooks}
-        onAddedToCart={onAddedToCart}
         page = {page}
         gotoPageNew = {gotoPageNew}
-        // gotoPage = {gotoPage}
       />
     );
   }
@@ -140,7 +109,6 @@ const mapStateToProps = ({ bookList: { books, loading, error, booksFilter, books
 const mapDispatchToProps = (dispatch, { bookstoreService }) =>
   bindActionCreators({
     fetchBooks: fetchBooks(bookstoreService),
-    onAddedToCart: bookAddedToCart,
     gotoPageNew: gotoPage,
   }, dispatch);
 export default compose(

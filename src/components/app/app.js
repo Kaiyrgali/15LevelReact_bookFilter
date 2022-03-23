@@ -19,11 +19,9 @@ function App() {
         <BookstoreServiceProvider value={bookstoreService}>
           <Router>
             <main role="main" className="container">
-              <ShopHeader numItems={5} total={210} /> 
-              {/* // Заменить на страницу с фильтрами */}
+              <ShopHeader /> 
               <Routes>
                 <Route path="/" element={<HomePage />} />
-                {/* <Route path="cart" element={<CartPage />} /> ее нет, но нужны страницы с другими страницами */}
               </Routes>
             </main>
           </Router>

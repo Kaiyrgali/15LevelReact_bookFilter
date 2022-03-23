@@ -1,10 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { getFilter, getRaiting, getPrice } from '../../actions';
-// import ItemStatusFilter from '../item-status-filter';
 
 function FiltersPanel ({onFilter, onRaiting, onPrice}) {
-  // render() {
     const searchText = 'type to search';
     const searchPrice = 'maximum price';
 
@@ -16,15 +14,11 @@ function FiltersPanel ({onFilter, onRaiting, onPrice}) {
           className="form-control search-input"
           placeholder={searchText}
           onInput={(e) => {
-            // const newValue = String(e.target.value);
-            // console.log(newValue);
             onFilter(e.target.value);
           }}
         />
-        {/* <span> Фильтр по рейтингу: </span> */}
         <select onChange={(e)=>onRaiting(e.target.value)}>
           <option value = '1'>1 and more</option>
-           {/* вывести в отдельные компоненты */}
           <option value = '2'>2 and more</option>
           <option value = '3'>3 and more</option>
           <option value = '4'>4 and more</option>
@@ -41,11 +35,8 @@ function FiltersPanel ({onFilter, onRaiting, onPrice}) {
           onInput={(e) => onPrice(e.target.value)}
         />
         </div>
-        
     );
-  // }
 }
-
 
 const mapDispatchToProps = (dispatch, { bookstoreService }) => ({
   onFilter: (newValue) => dispatch(getFilter(newValue)),
