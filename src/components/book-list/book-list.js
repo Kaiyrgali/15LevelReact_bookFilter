@@ -25,7 +25,7 @@ function BookList({ books, page, onAddedToCart, gotoPageNew }) {
     pagesNumbers.push(i+1);
     // console.log(pagesNumbers)
   };
-  let onPageBooks = books.splice((page-1)*5,page*5);
+  let onPageBooks = books.splice((page-1)*5,5);
   console.log(page);
   
   // const ar = 
