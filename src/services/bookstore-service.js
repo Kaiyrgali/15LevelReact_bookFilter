@@ -5,7 +5,6 @@ export default class BookstoreService {
   _apiBaseHost = 'bookshelves.p.rapidapi.com';
 
   getBooks = async () => {
-    console.log('Start');
     const res = await fetch(this._apiBase, {
           "method": "GET",
           "headers": {
@@ -13,7 +12,6 @@ export default class BookstoreService {
             "x-rapidapi-host": this._apiBaseHost
           }});
     if (!res.ok) {
-      console.log('Error')
       throw new Error(`Could not fetch Books DataBase recieved ${res.status}`);
     };
     const parseData = await res.json();

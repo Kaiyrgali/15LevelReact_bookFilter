@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import FiltersPanel from '../filters-panel/filters-panel';
+import FiltersPanel from '../filters-panel';
 import './shop-header.css';
 
 function ShopHeader() {

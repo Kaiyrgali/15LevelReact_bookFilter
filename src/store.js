@@ -18,13 +18,4 @@ const stringMiddlewere = () => (next) => (action) => {
 
 const store = createStore(reducer, applyMiddleware(thunkMiddleware, stringMiddlewere, logMiddlewere));
 
-const delayedActionCreator = (timeout) => (dispatch) => {
-  setTimeout(() => dispatch({
-    type: 'DELAYED_ACTION',
-  }), timeout);
-};
-
-store.dispatch(delayedActionCreator(3000));
-store.dispatch('HELLO WORLD');
-
 export default store;
