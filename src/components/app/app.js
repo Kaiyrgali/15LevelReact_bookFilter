@@ -10,9 +10,19 @@ import { BookstoreServiceProvider } from '../bookstore-service-context';
 import BookstoreService from '../../services/bookstore-service';
 
 const bookstoreService = new BookstoreService();
-// console.log(bookstoreService);
+console.log(bookstoreService);
+console.log('func', bookstoreService.getBooks());
+
+    // return {
+    //   term: newValue,
+
 
 function App() {
+  const FilterByFilterPanel = (eText) => {
+    const newValue = String(eText.target.value);
+    console.log(newValue);
+  };
+
   return (
     <Provider store={store}>
       <ErrorBoundry>

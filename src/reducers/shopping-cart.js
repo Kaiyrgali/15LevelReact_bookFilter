@@ -49,18 +49,28 @@ const updateOrder = (state, bookId, quantity) => {
     cartItems: updateCartItems(cartItems, newItem, itemIndex),
   };
 };
-
+// const updateFilter = (state, action) => {
+//   console.log(state, action);
+//   return {
+//     bookstoreService: [1, 3, 4],
+//     cartItems: [],
+//       orderTotal: 0,
+//   }
+// }
 const updateShoppingCart = (state, action) => {
   if (state === undefined) {
     return {
+      bookstoreService: [1, 2, 3],
       cartItems: [],
       orderTotal: 0,
     };
   }
 
+
   switch (action.type) {
-    case 'BOOK_ADDED_TO_CART':
-      return updateOrder(state, action.payload, 1);
+    // case 'GET_BOOK_FILTER':
+    //   // console.log('action', action.payload);
+    //   return updateFilter(state, action.payload);
 
     case 'BOOK_REMOVED_FROM_CART':
       return updateOrder(state, action.payload, -1);

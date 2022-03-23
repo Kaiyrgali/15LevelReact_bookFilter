@@ -1,11 +1,10 @@
-const updateBookList = (state, action) => {
 
+const updateBookList = () => {
   if (state === undefined) {
     return {
       books: [],
       loading: true,
       error: null,
-      booksFilter: ''
     };
   }
 
@@ -15,7 +14,6 @@ const updateBookList = (state, action) => {
         books: [],
         loading: true,
         error: null,
-        booksFilter: null,
       };
 
     case 'FETCH_BOOKS_SUCCESS':
@@ -23,7 +21,6 @@ const updateBookList = (state, action) => {
         books: action.payload,
         loading: false,
         error: null,
-        booksFilter: null,
       };
 
     case 'FETCH_BOOKS_FAILURE':
@@ -31,19 +28,7 @@ const updateBookList = (state, action) => {
         books: [],
         loading: false,
         error: action.payload,
-        booksFilter: null,
       };
-
-    case 'GET_BOOK_FILTER':
-      console.log(action.payload)
-      // const newBooks = state.bookList.books.slice(0,3);
-      // console.log('state', newBooks);
-      return {
-        books: state.bookList.books,
-        loading: false,
-        error: null,
-        booksFilter: action.payload,
-      }
 
     default:
       return state.bookList;

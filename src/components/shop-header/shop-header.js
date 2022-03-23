@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import FiltersPanel from '../filters-panel/filters-panel';
 import './shop-header.css';
 
 function ShopHeader({ numItems, total }) {
@@ -8,6 +9,7 @@ function ShopHeader({ numItems, total }) {
       <Link to="/">
         <div className="logo text-dark">ReStore</div>
       </Link>
+      <FiltersPanel />
       <Link to="cart">
         <div className="shopping-cart">
           <i className="cart-icon fa fa-shopping-cart" />

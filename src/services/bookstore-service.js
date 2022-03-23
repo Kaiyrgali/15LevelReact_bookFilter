@@ -19,8 +19,10 @@ export default class BookstoreService {
     const data = Object.values(parseData.Books);
     return data;
    }
-};
-  
+
+
+
+};  
     // data = getBooks();
   
 
