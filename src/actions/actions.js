@@ -26,6 +26,12 @@ export const getPrice = (newValue) => ({
   payload: newValue,
 });
 
+export const gotoPage = (page) => ({
+  type: 'GET_BOOK_PAGE',
+  payload: page,
+});
+
+
 export const bookAddedToCart = (bookId) => ({
   type: 'BOOK_ADDED_TO_CART',
   payload: bookId,

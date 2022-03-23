@@ -4,6 +4,7 @@ import ShopingCartTable from '../shopping-cart-table';
 import './main.css';
 
 function HomePage({ bookstoreService }) {
+  // console.log({gotoPage})
   return (
     <div>
       <BookListContainer books={[]} />

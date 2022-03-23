@@ -8,6 +8,7 @@ const updateBookList = (state, action) => {
       booksFilter: '',
       booksRaiting: null,
       booksPrice: null,
+      page: 1,
     };
   }
 
@@ -19,7 +20,8 @@ const updateBookList = (state, action) => {
         error: null,
         booksFilter: null,
         booksRaiting: null,
-        booksPrice: null,  
+        booksPrice: null,
+        page: 1,
       };
 
     case 'FETCH_BOOKS_SUCCESS':
@@ -30,6 +32,7 @@ const updateBookList = (state, action) => {
         booksFilter: null,
         booksRaiting: null,
         booksPrice: null,
+        page: 1,
         };
 
     case 'FETCH_BOOKS_FAILURE':
@@ -40,6 +43,7 @@ const updateBookList = (state, action) => {
         booksFilter: null,
         booksRaiting: null,
         booksPrice: null,
+        page: 1,
         };
 
     case 'GET_BOOK_FILTER':
@@ -50,10 +54,11 @@ const updateBookList = (state, action) => {
         booksFilter: action.payload,
         booksRaiting: state.bookList.booksRaiting,
         booksPrice: state.bookList.booksPrice,
+        page: 1,
         }
 
     case 'GET_BOOK_RAITING':
-      console.log(state)
+      console.log('Price', state.bookList.booksPrice)
       return {
         books: state.bookList.books,
         loading: false,
@@ -61,6 +66,7 @@ const updateBookList = (state, action) => {
         booksFilter: state.bookList.booksFilter,
         booksRaiting: action.payload,
         booksPrice: state.bookList.booksPrice,
+        page: 1,
         }
     
     case 'GET_BOOK_PRICE':
@@ -70,7 +76,20 @@ const updateBookList = (state, action) => {
         error: null,
         booksFilter: state.bookList.booksFilter,
         booksRaiting: state.bookList.booksRaiting,
-        booksPrice: action.payload,  
+        booksPrice: action.payload,
+        page: 1,
+      }
+
+    case 'GET_BOOK_PAGE':
+      console.log('GET_BOOK_action', action.payload)
+      return {
+        books: state.bookList.books,
+        loading: false,
+        error: null,
+        booksFilter: state.bookList.booksFilter,
+        booksRaiting: state.bookList.booksRaiting,
+        booksPrice: state.bookList.booksPrice,
+        page: action.payload,
       }
 
     default:
