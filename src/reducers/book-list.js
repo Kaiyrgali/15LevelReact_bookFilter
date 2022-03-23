@@ -5,7 +5,9 @@ const updateBookList = (state, action) => {
       books: [],
       loading: true,
       error: null,
-      booksFilter: ''
+      booksFilter: '',
+      booksRaiting: null,
+      booksPrice: null,
     };
   }
 
@@ -16,6 +18,8 @@ const updateBookList = (state, action) => {
         loading: true,
         error: null,
         booksFilter: null,
+        booksRaiting: null,
+        booksPrice: null,  
       };
 
     case 'FETCH_BOOKS_SUCCESS':
@@ -24,7 +28,9 @@ const updateBookList = (state, action) => {
         loading: false,
         error: null,
         booksFilter: null,
-      };
+        booksRaiting: null,
+        booksPrice: null,
+        };
 
     case 'FETCH_BOOKS_FAILURE':
       return {
@@ -32,17 +38,39 @@ const updateBookList = (state, action) => {
         loading: false,
         error: action.payload,
         booksFilter: null,
-      };
+        booksRaiting: null,
+        booksPrice: null,
+        };
 
     case 'GET_BOOK_FILTER':
-      console.log(action.payload)
-      // const newBooks = state.bookList.books.slice(0,3);
-      // console.log('state', newBooks);
       return {
         books: state.bookList.books,
         loading: false,
         error: null,
         booksFilter: action.payload,
+        booksRaiting: state.bookList.booksRaiting,
+        booksPrice: state.bookList.booksPrice,
+        }
+
+    case 'GET_BOOK_RAITING':
+      console.log(state)
+      return {
+        books: state.bookList.books,
+        loading: false,
+        error: null,
+        booksFilter: state.bookList.booksFilter,
+        booksRaiting: action.payload,
+        booksPrice: state.bookList.booksPrice,
+        }
+    
+    case 'GET_BOOK_PRICE':
+      return {
+        books: state.bookList.books,
+        loading: false,
+        error: null,
+        booksFilter: state.bookList.booksFilter,
+        booksRaiting: state.bookList.booksRaiting,
+        booksPrice: action.payload,  
       }
 
     default:

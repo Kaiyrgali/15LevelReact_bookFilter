@@ -16,6 +16,15 @@ export const getFilter = (newValue) => ({
   type: 'GET_BOOK_FILTER',
   payload: newValue,
 });
+export const getRaiting = (newValue) => ({
+  type: 'GET_BOOK_RAITING',
+  payload: newValue,
+});
+
+export const getPrice = (newValue) => ({
+  type: 'GET_BOOK_PRICE',
+  payload: newValue,
+});
 
 export const bookAddedToCart = (bookId) => ({
   type: 'BOOK_ADDED_TO_CART',

@@ -1,3 +1,5 @@
+https://english.api.rakuten.net/Ionut-Cora/api/bookshelves/endpoints
+
 author: "Terry Hayes"
 description: "THE AMAZING NEW THRILLER FROM TERRY HAYES. "
 id: 0
